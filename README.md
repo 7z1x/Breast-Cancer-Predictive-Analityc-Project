@@ -4,7 +4,7 @@
 
 ### Latar Belakang
 
-Kanker payudara adalah salah satu jenis kanker paling umum di dunia, dengan lebih dari 2 juta kasus baru setiap tahunnya (Sung et al., 2021). Deteksi dini melalui analisis fitur tumor (seperti radius, tekstur, dan kekompakan) sangat penting untuk meningkatkan tingkat kelangsungan hidup pasien. Dataset Breast Cancer Wisconsin menyediakan data pengukuran tumor yang dapat digunakan untuk mengklasifikasikan tumor sebagai malignant (kanker) atau benign (non-kanker) menggunakan pendekatan machine learning. Masalah ini relevan karena diagnosis yang akurat dapat membantu dokter membuat keputusan pengobatan yang tepat, mengurangi risiko kesalahan diagnosis, dan meningkatkan efisiensi proses medis.
+Kanker payudara adalah salah satu jenis kanker paling umum di dunia, dengan lebih dari 2 juta kasus baru setiap tahunnya [1]. Deteksi dini melalui analisis fitur tumor (seperti radius, tekstur, dan kekompakan) sangat penting untuk meningkatkan tingkat kelangsungan hidup pasien. Dataset Breast Cancer Wisconsin menyediakan data pengukuran tumor yang dapat digunakan untuk mengklasifikasikan tumor sebagai malignant (kanker) atau benign (non-kanker) menggunakan pendekatan machine learning. Masalah ini relevan karena diagnosis yang akurat dapat membantu dokter membuat keputusan pengobatan yang tepat, mengurangi risiko kesalahan diagnosis, dan meningkatkan efisiensi proses medis.
 
 
 ### Mengapa dan Bagaimana Masalah Ini Harus Diselesaikan
@@ -17,10 +17,6 @@ Masalah klasifikasi tumor payudara harus diselesaikan untuk:
 - Efisiensi Waktu: Mengotomatisasi proses analisis fitur tumor, yang biasanya memakan waktu jika dilakukan secara manual.
 
 Pendekatan machine learning dipilih karena kemampuannya untuk mengenali pola kompleks dalam data numerik, seperti yang ada pada dataset ini. Dengan melatih model seperti Logistic Regression, Random Forest, dan SVM, kita dapat membangun sistem prediksi yang akurat dan terukur.
-
-Referensi
-
-Sung, H., Ferlay, J., Siegel, R. L., Laversanne, M., Soerjomataram, I., Jemal, A., & Bray, F. (2021). Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA: A Cancer Journal for Clinicians, 71(3), 209–249. https://doi.org/10.3322/caac.21660
 
 ## Business Understanding
 ### Problem Statement:
@@ -49,7 +45,7 @@ Untuk mencapai tujuan, dua solusi diusulkan:
   - Kolom Unnamed: 32 sepenuhnya kosong, kolom id tidak relevan untuk modeling.
 - Target: Kolom diagnosis dengan nilai M (malignant) dan B (benign).
 
-![](link Data loading)
+![](https://github.com/7z1x/Breast-Cancer-Predictive-Analityc-Project/blob/e3e91b45a651c8cf8080cd9c8a9541b74e4db7e4/image/Data%20Loading.jpg)
 
 ### **Variabel/Fitur:**
 - Total: 30 fitur numerik, 1 fitur target kategorik (diagnosis), 1 kolom ID, dan 1 kolom kosong.
@@ -104,10 +100,10 @@ Untuk mencapai tujuan, dua solusi diusulkan:
 
 - Distribusi target menunjukkan lebih banyak kasus benign (63%) dibandingkan malignant (37%), tetapi tidak terlalu imbalanced
 
-![](Distribusi data target)
+![](https://github.com/7z1x/Breast-Cancer-Predictive-Analityc-Project/blob/e3e91b45a651c8cf8080cd9c8a9541b74e4db7e4/image/Dsitribusi%20fitur%20taget.jpg)
 
 ###  Korelasi antar fitur (heatmap)
-![](headtmap korelasi)
+![](https://github.com/7z1x/Breast-Cancer-Predictive-Analityc-Project/blob/e3e91b45a651c8cf8080cd9c8a9541b74e4db7e4/image/heatmap_korelasi.png)
 
 ## Data Preparation
 ### Pembagian Data
@@ -262,6 +258,10 @@ SVM bekerja dengan mencari hyperplane terbaik yang memisahkan dua kelas data den
 
 <br>
 
+![](https://github.com/7z1x/Breast-Cancer-Predictive-Analityc-Project/blob/e3e91b45a651c8cf8080cd9c8a9541b74e4db7e4/image/Evaluasi%20performa%20model.jpg)
+
+<br>
+
 **Insight Evaluasi Model:**
 
 1. Berdasarkan evaluasi enam kombinasi model dan metode seleksi fitur, model RFE + Logistic Regression memberikan performa paling seimbang dengan F1 Score tertinggi (0.9639), diikuti sangat dekat oleh SelectKBest + SVM dan RFE + Random Forest yang juga memiliki akurasi dan precision 100%, namun sedikit lebih rendah di aspek recall.
@@ -334,4 +334,4 @@ Proyek ini berhasil membangun model klasifikasi untuk mendiagnosis kanker payuda
 <br>
 
 ## Referensi
-1. Sung, H., Ferlay, J., Siegel, R. L., Laversanne, M., Soerjomataram, I., Jemal, A., & Bray, F. (2021). Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA: A Cancer Journal for Clinicians, 71(3), 209–249. https://doi.org/10.3322/caac.21660
+[1] Sung, H., Ferlay, J., Siegel, R. L., Laversanne, M., Soerjomataram, I., Jemal, A., & Bray, F. (2021). Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA: A Cancer Journal for Clinicians, 71(3), 209–249. https://doi.org/10.3322/caac.21660
