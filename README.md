@@ -50,47 +50,41 @@ Untuk mencapai tujuan, dua solusi diusulkan:
 ### **Variabel/Fitur:**
 - Total: 30 fitur numerik, 1 fitur target kategorik (diagnosis), 1 kolom ID, dan 1 kolom kosong.
   
-| #  | Column                   | Non-Null Count | Dtype   |
-|----|--------------------------|----------------|---------|
-| 0  | id                       | 569            | int64   |
-| 1  | diagnosis                | 569            | object  |
-| 2  | radius_mean              | 569            | float64 |
-| 3  | texture_mean             | 569            | float64 |
-| 4  | perimeter_mean           | 569            | float64 |
-| 5  | area_mean                | 569            | float64 |
-| 6  | smoothness_mean          | 569            | float64 |
-| 7  | compactness_mean         | 569            | float64 |
-| 8  | concavity_mean           | 569            | float64 |
-| 9  | concave points_mean      | 569            | float64 |
-| 10 | symmetry_mean            | 569            | float64 |
-| 11 | fractal_dimension_mean   | 569            | float64 |
-| 12 | radius_se                | 569            | float64 |
-| 13 | texture_se               | 569            | float64 |
-| 14 | perimeter_se             | 569            | float64 |
-| 15 | area_se                  | 569            | float64 |
-| 16 | smoothness_se            | 569            | float64 |
-| 17 | compactness_se           | 569            | float64 |
-| 18 | concavity_se             | 569            | float64 |
-| 19 | concave points_se        | 569            | float64 |
-| 20 | symmetry_se              | 569            | float64 |
-| 21 | fractal_dimension_se     | 569            | float64 |
-| 22 | radius_worst             | 569            | float64 |
-| 23 | texture_worst            | 569            | float64 |
-| 24 | perimeter_worst          | 569            | float64 |
-| 25 | area_worst               | 569            | float64 |
-| 26 | smoothness_worst         | 569            | float64 |
-| 27 | compactness_worst        | 569            | float64 |
-| 28 | concavity_worst          | 569            | float64 |
-| 29 | concave points_worst     | 569            | float64 |
-| 30 | symmetry_worst           | 569            | float64 |
-| 31 | fractal_dimension_worst  | 569            | float64 |
-| 32 | Unnamed: 32              | 0              | float64 |
-
-### Menangani Missing Value dan Fitur Nonrelevan
-- Melakukan tindakan drop untuk kolom yang tidak relevan seperti Id dan data yang kosong (Unnamed: 32)
-### Prepare data target
-- Data target memiliki 2 nilai yaitu 'M': malignant, 'B': benign
-- Mengubah data target atau encoding menjadi numerik yaitu 1 untuk malignant(M) atau kanker ganas dan 0 Benign(B) atau kanker jinak
+| Kolom                    | Deskripsi                                                                 | Non-null Count | dtype   |
+|--------------------------|---------------------------------------------------------------------------|----------------|---------|
+| id                       | ID unik untuk tiap pasien                                                 | 569            | int64   |
+| diagnosis                | Hasil diagnosis: M (ganas) atau B (jinak)                                 | 569            | object  |
+| radius_mean              | Rata-rata jari-jari sel inti                                              | 569            | float64 |
+| texture_mean             | Rata-rata variasi tingkat abu-abu (tekstur permukaan sel)                 | 569            | float64 |
+| perimeter_mean           | Rata-rata keliling sel inti                                               | 569            | float64 |
+| area_mean                | Rata-rata luas permukaan sel inti                                         | 569            | float64 |
+| smoothness_mean          | Rata-rata kehalusan batas sel                                             | 569            | float64 |
+| compactness_mean         | Rata-rata kekompakan sel                                                  | 569            | float64 |
+| concavity_mean           | Rata-rata tingkat cekungan batas sel                                      | 569            | float64 |
+| concave points_mean      | Rata-rata jumlah titik-titik cekungan di batas sel                        | 569            | float64 |
+| symmetry_mean            | Rata-rata simetri bentuk sel                                              | 569            | float64 |
+| fractal_dimension_mean   | Rata-rata kompleksitas batas sel                                          | 569            | float64 |
+| radius_se                | Standar deviasi jari-jari sel                                             | 569            | float64 |
+| texture_se               | Standar deviasi tekstur sel                                               | 569            | float64 |
+| perimeter_se             | Standar deviasi keliling sel                                              | 569            | float64 |
+| area_se                  | Standar deviasi luas sel                                                  | 569            | float64 |
+| smoothness_se            | Standar deviasi kehalusan                                                 | 569            | float64 |
+| compactness_se           | Standar deviasi kekompakan                                                | 569            | float64 |
+| concavity_se             | Standar deviasi tingkat cekungan                                          | 569            | float64 |
+| concave points_se        | Standar deviasi jumlah titik cekungan                                     | 569            | float64 |
+| symmetry_se              | Standar deviasi simetri sel                                               | 569            | float64 |
+| fractal_dimension_se     | Standar deviasi kompleksitas batas sel                                    | 569            | float64 |
+| radius_worst             | Nilai maksimum radius dari 3 sel terburuk                                 | 569            | float64 |
+| texture_worst            | Nilai maksimum tekstur                                                    | 569            | float64 |
+| perimeter_worst          | Nilai maksimum keliling                                                   | 569            | float64 |
+| area_worst               | Nilai maksimum luas                                                       | 569            | float64 |
+| smoothness_worst         | Nilai maksimum kehalusan                                                  | 569            | float64 |
+| compactness_worst        | Nilai maksimum kekompakan                                                 | 569            | float64 |
+| concavity_worst          | Nilai maksimum tingkat cekungan                                           | 569            | float64 |
+| concave points_worst     | Nilai maksimum jumlah titik cekungan                                      | 569            | float64 |
+| symmetry_worst           | Nilai maksimum simetri                                                    | 569            | float64 |
+| fractal_dimension_worst  | Nilai maksimum kompleksitas batas sel                                     | 569            | float64 |
+| Unnamed: 32              | Kolom kosong                                                              | 0              | float64 |
 
 ### **Distribusi data label:**
 | Diagnosis | Jumlah |
@@ -106,6 +100,13 @@ Untuk mencapai tujuan, dua solusi diusulkan:
 ![](https://github.com/7z1x/Breast-Cancer-Predictive-Analityc-Project/blob/e3e91b45a651c8cf8080cd9c8a9541b74e4db7e4/image/heatmap_korelasi.png)
 
 ## Data Preparation
+
+### Menangani Missing Value dan Fitur Nonrelevan
+- Melakukan tindakan drop untuk kolom yang tidak relevan seperti Id dan data yang kosong (Unnamed: 32)
+### Prepare data target
+- Data target memiliki 2 nilai yaitu 'M': malignant, 'B': benign
+- Mengubah data target atau encoding menjadi numerik yaitu 1 untuk malignant(M) atau kanker ganas dan 0 Benign(B) atau kanker jinak
+
 ### Pembagian Data
 - Memisahkan fitur dan Target
 <pre> <code> X = df.drop('diagnosis', axis=1) 
@@ -191,13 +192,13 @@ print("Fitur dari RFE (SVM):", rfe_features_svm.tolist())
 Dalam proyek ini, digunakan tiga algoritma machine learning untuk melakukan klasifikasi diagnosis kanker payudara, yaitu Logistic Regression, Random Forest Classifier, dan Support Vector Machine (SVM). Selain itu, diterapkan dua metode seleksi fitur: SelectKBest dan Recursive Feature Elimination (RFE), untuk meningkatkan akurasi dan efisiensi model. Pemilihan algoritma dan metode seleksi fitur didasarkan pada kemampuannya menangani data numerik dan klasifikasi biner secara efektif.
 
 - ***Logistic Regression:***<br>
-Logistic Regression adalah model klasifikasi linier yang digunakan untuk memprediksi probabilitas dari kelas target biner. Optimasi adaptif dari hyperparameter mengurangi biaya komputasi dalam memilih nilai hyperparameter yang baik, dan memungkinkan nilai optimal ini ditentukan lebih tepat[4]. Model ini sederhana namun kuat untuk baseline, dan mampu memberikan interpretasi koefisien yang jelas untuk setiap fitur. Dalam proyek ini, Logistic Regression dioptimalkan menggunakan regularisasi L2 untuk menghindari overfitting.
+Logistic Regression adalah model klasifikasi linier yang digunakan untuk memprediksi probabilitas dari kelas target biner. Optimasi adaptif dari hyperparameter mengurangi biaya komputasi dalam memilih nilai hyperparameter yang baik, dan memungkinkan nilai optimal ini ditentukan lebih tepat[4]. Model ini sederhana namun kuat untuk baseline, dan mampu memberikan interpretasi koefisien yang jelas untuk setiap fitur. Dalam proyek ini, Logistic Regression dioptimalkan menggunakan regularisasi L2 sebagai default dari Scikit-learn.
 
 - ***Random Forest Classifier:***<br>
-Random forests adalah kombinasi dari prediktor pohon di mana setiap pohon bergantung pada nilai dari vektor acak yang diambil secara independen dan dengan distribusi yang sama untuk semua pohon dalam hutan[5]. Model ini tahan terhadap overfitting dan mampu menangkap pola yang kompleks dalam data. Parameter seperti n_estimators dan max_depth diatur agar model tetap efisien namun akurat.
+Random forests adalah kombinasi dari prediktor pohon di mana setiap pohon bergantung pada nilai dari vektor acak yang diambil secara independen dan dengan distribusi yang sama untuk semua pohon dalam hutan[5]. Model ini tahan terhadap overfitting dan mampu menangkap pola yang kompleks dalam data dan random_state=42 untuk mengatur seednya. 
 
 - ***Support Vector Machine (SVM):***<br>
-Support vector machine adalah sistem untuk melatih mesin pembelajaran linier secara efisien dalam ruang fitur yang diinduksi oleh kernel[6]. Dalam proyek ini, digunakan kernel linear yang cocok untuk dataset berdimensi tinggi dan sparsitas rendah. Parameter seperti C disesuaikan untuk mengontrol margin dan menghindari overfitting.
+Support vector machine adalah sistem untuk melatih mesin pembelajaran linier secara efisien dalam ruang fitur yang diinduksi oleh kernel[6]. Dalam proyek ini, digunakan kernel="linear"  yang cocok untuk dataset berdimensi tinggi dan sparsitas rendah serta menggunakan random_state=42 untuk mengatur seednya.
 
 ***Metrik***<br>
 | Metrik      | Rumus                                      | Penjelasan                                                                                  |
