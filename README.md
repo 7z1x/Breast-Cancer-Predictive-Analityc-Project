@@ -124,8 +124,8 @@ X_test_scaled = scaler.transform(X_test)
 ## Feature Selection
 -  Untuk mengurangi dimensi, multikolinearitas dan meningkatkan efisiensi model, saya melakukan feature selection menggunakan SelectKBest untuk memilih 10 fitur terbaik berdasarkan skor ANOVA dan RFE untuk memilih 10 fitur menggunakan eliminasi rekursif dengan tiga estimator.
 -  SelectKBest:
-SelectKBest adalah metode seleksi fitur univariat yang memilih fitur-fitur terbaik berdasarkan skor statistik seperti chi-squared atau f-classif. Metode ini cepat dan efektif untuk mengurangi dimensi data sebelum pelatihan model.
-- RFE adalah metode seleksi fitur yang secara rekursif menghapus fitur dengan kontribusi terendah terhadap prediksi model, berdasarkan bobot model estimator. RFE berguna untuk menemukan subset fitur paling relevan yang dapat meningkatkan akurasi model sekaligus mengurangi kompleksitas.
+SelectKBest adalah metode seleksi fitur univariat yang memilih fitur-fitur terbaik berdasarkan skor statistik seperti chi-squared atau f-classif. Metode ini menunjukkan bagaimana reduksi dimensi atau seleksi fitur meningkatkan kinerja atau akurasi algoritma klasifikasi[2].
+- Recursive Feature Elimination (RFE) adalah teknik seleksi fitur berbasis pembungkus yang menggunakan model pembelajaran mesin untuk menentukan skor relevansi fitur[3].
 ### SelectKBest
 <pre> <code>
 k = 10  # Jumlah fitur yang diambil
@@ -191,13 +191,13 @@ print("Fitur dari RFE (SVM):", rfe_features_svm.tolist())
 Dalam proyek ini, digunakan tiga algoritma machine learning untuk melakukan klasifikasi diagnosis kanker payudara, yaitu Logistic Regression, Random Forest Classifier, dan Support Vector Machine (SVM). Selain itu, diterapkan dua metode seleksi fitur: SelectKBest dan Recursive Feature Elimination (RFE), untuk meningkatkan akurasi dan efisiensi model. Pemilihan algoritma dan metode seleksi fitur didasarkan pada kemampuannya menangani data numerik dan klasifikasi biner secara efektif.
 
 - ***Logistic Regression:***<br>
-Logistic Regression adalah model klasifikasi linier yang digunakan untuk memprediksi probabilitas dari kelas target biner. Model ini sederhana namun kuat untuk baseline, dan mampu memberikan interpretasi koefisien yang jelas untuk setiap fitur. Dalam proyek ini, Logistic Regression dioptimalkan menggunakan regularisasi L2 untuk menghindari overfitting.
+Logistic Regression adalah model klasifikasi linier yang digunakan untuk memprediksi probabilitas dari kelas target biner. Optimasi adaptif dari hyperparameter mengurangi biaya komputasi dalam memilih nilai hyperparameter yang baik, dan memungkinkan nilai optimal ini ditentukan lebih tepat[4]. Model ini sederhana namun kuat untuk baseline, dan mampu memberikan interpretasi koefisien yang jelas untuk setiap fitur. Dalam proyek ini, Logistic Regression dioptimalkan menggunakan regularisasi L2 untuk menghindari overfitting.
 
 - ***Random Forest Classifier:***<br>
-Random Forest adalah algoritma ensemble berbasis decision tree yang bekerja dengan membuat banyak pohon keputusan dan menggabungkan hasilnya melalui voting mayoritas. Model ini tahan terhadap overfitting dan mampu menangkap pola yang kompleks dalam data. Parameter seperti n_estimators dan max_depth diatur agar model tetap efisien namun akurat.
+Random forests adalah kombinasi dari prediktor pohon di mana setiap pohon bergantung pada nilai dari vektor acak yang diambil secara independen dan dengan distribusi yang sama untuk semua pohon dalam hutan[5]. Model ini tahan terhadap overfitting dan mampu menangkap pola yang kompleks dalam data. Parameter seperti n_estimators dan max_depth diatur agar model tetap efisien namun akurat.
 
 - ***Support Vector Machine (SVM):***<br>
-SVM bekerja dengan mencari hyperplane terbaik yang memisahkan dua kelas data dengan margin maksimal. Dalam proyek ini, digunakan kernel linear yang cocok untuk dataset berdimensi tinggi dan sparsitas rendah. Parameter seperti C disesuaikan untuk mengontrol margin dan menghindari overfitting.
+Support vector machine adalah sistem untuk melatih mesin pembelajaran linier secara efisien dalam ruang fitur yang diinduksi oleh kernel[6]. Dalam proyek ini, digunakan kernel linear yang cocok untuk dataset berdimensi tinggi dan sparsitas rendah. Parameter seperti C disesuaikan untuk mengontrol margin dan menghindari overfitting.
 
 ***Metrik***<br>
 | Metrik      | Rumus                                      | Penjelasan                                                                                  |
@@ -226,7 +226,9 @@ SVM bekerja dengan mencari hyperplane terbaik yang memisahkan dua kelas data den
 <br>
 
 ## Evaluasi
-- Confusion Matrix: Menampilkan TP, TN, FP, FN.<br>
+- Confusion Matrix menawarkan teknik yang mendalam dan terperinci untuk mengevaluasi kinerja klasifikator, yang penting dalam ilmu data[7]
+- Confusion Matrix: Menampilkan TP, TN, FP, FN.
+<br>
 
 | Confusion Matrix      | Penjelasan                                                                 |
 |-----------------------|----------------------------------------------------------------------------|
@@ -335,3 +337,16 @@ Proyek ini berhasil membangun model klasifikasi untuk mendiagnosis kanker payuda
 
 ## Referensi
 [1] Sung, H., Ferlay, J., Siegel, R. L., Laversanne, M., Soerjomataram, I., Jemal, A., & Bray, F. (2021). Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA: A Cancer Journal for Clinicians, 71(3), 209–249. https://doi.org/10.3322/caac.21660
+
+[2] Kumar, R., & Rani, R. (2019). Feature Selection Method To Improve The Accuracy of Classification. International Journal of Innovative Technology and Exploring Engineering (IJITEE), 8(6), 342–345. Retrieved from https://www.ijitee.org/wp-content/uploads/papers/v8i6/F3421048619.pdf
+
+[3] Kumar, A., & Sharma, R. (2020). Recursive Feature Elimination with Feature Ranking-Based Feature Selection. International Journal of Innovative Research in Technology (IJIRT), 6(2), 223–226. Retrieved from https://ijirt.org/publishedpaper/IJIRT162237_PAPER.pdf
+
+[4] AbdelGawad, A., & Ratner, D. (2007). Adaptive Optimization of Hyperparameters in L2-Regularised Logistic Regression. CS229 Project Report, Stanford University. Retrieved from https://cs229.stanford.edu/proj2007/AbdelGawadRatner-AdaptiveHyperparameterOptimization.pdf
+
+[5] Breiman, L. (2001). Random Forests. Machine Learning, 45(1), 5–32. Retrieved from https://doi.org/10.1023/A:1010933404324
+
+[6] Panda, B. S. (n.d.). Support Vector Machines. Indian Institute of Technology Delhi. Retrieved from https://web.iitd.ac.in/~bspanda/SVM.pdf
+
+[7] Dauphin, G. (2019). Confusion Matrix. Laboratoire d'Informatique de Paris Nord. Retrieved from https://www-l2ti.univ-paris13.fr/~dauphin/Confusion_matrix.pdf
+
